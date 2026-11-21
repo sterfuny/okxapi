@@ -195,13 +195,22 @@ func main() {
 	// path := "candles"
 	// flag := []urlFlag{{"instId","ETH-USDT-SWAP"}}
 	okx_candle:=create_URLInfo(
-		"https://www.okx.com:443/api/v5","/market/candles",
+		"https://openapi.okx.com:443/api/v5","/market/candles",
 		[]flag{
 			{"instId","ETH-USDT-SWAP"},
 			{"bar","1m"},
 			{"after", fmt.Sprint(time.Now().Unix())},
 		},
 	)
+	okx_pay:=create_URLInfo(
+		"https://openapi.okx.com:443/api/v5","/market/candles",
+		[]flag{
+			{"instId","ETH-USDT-SWAP"},
+			{"bar","1m"},
+			{"after", fmt.Sprint(time.Now().Unix())},
+		},
+	)
+	okx_pay=okx_pay
 
 	for {
 		if err := okx_candle.restCall(); err != nil {
